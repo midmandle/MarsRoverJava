@@ -16,8 +16,12 @@ public class Rover {
     }
 
     public String move(String instructions) {
+        if(instructions.equals("R"))
+            this.direction = CompassDirection.EAST;
+        if(instructions.equals("L"))
+            this.direction = CompassDirection.WEST;
+
         this.currentLocation = new Coordinate(0,0);
-        this.direction = CompassDirection.EAST;
         return this.determineCurrentLocation();
     }
 }
