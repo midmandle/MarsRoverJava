@@ -11,8 +11,9 @@ public class Rover {
         return currentLocation.toString() + "," + direction.name().charAt(0);
     }
 
-    public void move(String instructions) {
+    public String move(String instructions) {
         this.currentLocation = new Coordinate(0,0);
         this.direction = CompassDirection.EAST;
+        return this.determineCurrentLocation();
     }
 }
