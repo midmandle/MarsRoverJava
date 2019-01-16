@@ -1,6 +1,5 @@
-public enum CompassDirection {
-    NORTH,
-    EAST,
-    SOUTH,
-    WEST
+public interface CompassDirection {
+    CompassDirection rotateRight();
+    CompassDirection rotateLeft();
+    String getName();
 }
