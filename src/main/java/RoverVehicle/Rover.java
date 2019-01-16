@@ -3,8 +3,8 @@ package RoverVehicle;
 import RoverGrid.CompassDirection;
 import RoverGrid.Coordinate;
 import RoverGrid.North;
-import RoverActions.Action;
-import RoverActions.ActionFactory;
+import RoverVehicle.RoverActions.Action;
+import RoverVehicle.RoverActions.ActionFactory;
 
 public class Rover {
     private Location location;

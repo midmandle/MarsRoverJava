@@ -1,6 +1,5 @@
-package RoverActions;
+package RoverVehicle.RoverActions;
 
-import RoverActions.Action;
 import RoverVehicle.Location;
 
 public class MoveAction implements Action {

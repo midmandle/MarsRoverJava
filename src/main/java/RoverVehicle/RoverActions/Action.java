@@ -1,4 +1,4 @@
-package RoverActions;
+package RoverVehicle.RoverActions;
 
 import RoverVehicle.Location;
 

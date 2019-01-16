@@ -1,6 +1,4 @@
-package RoverActions;
-
-import RoverActions.Action;
+package RoverVehicle.RoverActions;
 
 public class ActionFactory {
 
