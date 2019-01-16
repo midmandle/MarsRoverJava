@@ -9,6 +9,6 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return yCoordinate + "," + xCoordinate;
+        return xCoordinate + "," + yCoordinate;
     }
 }

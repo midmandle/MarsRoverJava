@@ -17,14 +17,19 @@ public class Rover {
 
     public String move(String instructions) {
         for (Character action : instructions.toCharArray()) {
+            if(action.equals('M'))
+                this.moveForward();
             if(action.equals('R'))
                 this.rotateRight();
             if(action.equals('L'))
                 this.rotateLeft();
         }
 
-        this.currentLocation = new Coordinate(0,0);
         return this.determineCurrentLocation();
+    }
+
+    private void moveForward() {
+        this.currentLocation = new Coordinate(0, 1);
     }
 
     private void rotateLeft() {
