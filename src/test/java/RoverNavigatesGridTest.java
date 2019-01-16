@@ -19,6 +19,14 @@ public class RoverNavigatesGridTest {
         return new Object[] {
                 new Object[]{"MM", "0,2,N"},
                 new Object[]{"RM", "1,0,E"},
+                new Object[]{"RMM", "2,0,E"},
+                new Object[]{"RMML", "2,0,N"},
+                new Object[]{"RMMLMMM", "2,3,N"},
+                new Object[]{"RMMLMMML", "2,3,W"},
+                new Object[]{"RMMLMMMLMM", "0,3,W"},
+                new Object[]{"RMMLMMMLMML", "0,3,S"},
+                new Object[]{"RMMLMMMLMMLMMM", "0,0,S"},
+                new Object[]{"RMMLMMMLMMLMMMRR", "0,0,N"},
         };
     }
 
@@ -30,7 +38,10 @@ public class RoverNavigatesGridTest {
 
     private Object[] wrapsAroundGridBoundariesParams() {
         return new Object[] {
-                new Object[]{"LM", "0,9,W"},
+                new Object[]{"LM", "9,0,W"},
+                new Object[]{"LLM", "0,9,S"},
+                new Object[]{"LLMMMMMMRM", "9,5,W"},
+                new Object[]{"LLMMMMMMRMRRM", "0,5,E"},
         };
     }
 }
