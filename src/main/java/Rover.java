@@ -17,14 +17,15 @@ public class Rover {
 
     public String move(String instructions) {
         for (Character action : instructions.toCharArray()) {
-            if(action.equals('M'))
-                this.location = this.location.moveForward();
-            if(action.equals('R'))
-                this.location = this.location.rotateRight();
-            if(action.equals('L'))
-                this.location = this.location.rotateLeft();
+            executeAction(action);
         }
 
         return this.location.toString();
+    }
+
+    private void executeAction(Character action) {
+        ActionFactory actionFactory = new ActionFactory();
+        Action actionToExecute = actionFactory.generate(action);
+        this.location = actionToExecute.execute(this.location);
     }
 }
