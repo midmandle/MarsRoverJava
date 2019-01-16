@@ -9,6 +9,6 @@ public class RoverStartsAt00NTest {
     public void rover_starts_at_location_00_facing_north() {
         Grid grid = new Grid();
         Rover rover = new Rover(grid);
-        assertEquals("0,0,N", rover.determineCurrentLocation());
+        assertEquals("0,0,N", rover.generateCurrentLocationString());
     }
 }

@@ -22,7 +22,7 @@ public class Rover {
         this.location = new Location(initialCoordinate, initialDirection);
     }
 
-    public String determineCurrentLocation() {
+    public String generateCurrentLocationString() {
         return this.location.toString();
     }
 
@@ -31,9 +31,9 @@ public class Rover {
             for (Character action : instructions.toCharArray()) {
                 executeAction(action);
             }
-            return this.location.toString();
+            return this.generateCurrentLocationString();
         } catch (Exception e) {
-            return this.location.toString();
+            return this.generateCurrentLocationString();
         }
     }
 
