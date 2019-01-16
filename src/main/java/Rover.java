@@ -16,12 +16,49 @@ public class Rover {
     }
 
     public String move(String instructions) {
-        if(instructions.equals("R"))
-            this.direction = CompassDirection.EAST;
-        if(instructions.equals("L"))
-            this.direction = CompassDirection.WEST;
+        for (Character action : instructions.toCharArray()) {
+            System.out.println("Action: " + action);
+            if(action.equals('R'))
+                rotateRight();
+            if(action.equals('L'))
+                rotateLeft();
+        }
 
         this.currentLocation = new Coordinate(0,0);
         return this.determineCurrentLocation();
+    }
+
+    private void rotateLeft() {
+        switch (this.direction) {
+            case NORTH:
+                this.direction = CompassDirection.WEST;
+                break;
+            case EAST:
+                this.direction = CompassDirection.NORTH;
+                break;
+            case SOUTH:
+                this.direction = CompassDirection.EAST;
+                break;
+            case WEST:
+                this.direction = CompassDirection.SOUTH;
+                break;
+        }
+    }
+
+    private void rotateRight() {
+        switch(this.direction) {
+            case NORTH:
+                this.direction = CompassDirection.EAST;
+                break;
+            case EAST:
+                this.direction = CompassDirection.SOUTH;
+                break;
+            case SOUTH:
+                this.direction = CompassDirection.WEST;
+                break;
+            case WEST:
+                this.direction = CompassDirection.NORTH;
+                break;
+        }
     }
 }

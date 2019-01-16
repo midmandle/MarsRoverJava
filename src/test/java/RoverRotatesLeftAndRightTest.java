@@ -15,4 +15,11 @@ public class RoverRotatesLeftAndRightTest {
         Rover rover = new Rover();
         assertEquals("0,0,W", rover.move("L"));
     }
+
+    @Test
+    public void rover_rotates_turn_to_face_opposite_direction() {
+        Rover rover = new Rover();
+        assertEquals("0,0,S", rover.move("RR"));
+        assertEquals("0,0,N", rover.move("LL"));
+    }
 }
