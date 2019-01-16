@@ -1,3 +1,5 @@
+package RoverGrid;
+
 public class East implements CompassDirection {
     public CompassDirection rotateRight() {
         return new South();

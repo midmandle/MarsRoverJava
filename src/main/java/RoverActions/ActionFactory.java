@@ -1,3 +1,7 @@
+package RoverActions;
+
+import RoverActions.Action;
+
 public class ActionFactory {
 
     public Action generate(Character action) {

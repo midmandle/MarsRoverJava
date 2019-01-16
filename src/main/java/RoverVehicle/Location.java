@@ -1,3 +1,8 @@
+package RoverVehicle;
+
+import RoverGrid.CompassDirection;
+import RoverGrid.Coordinate;
+
 public class Location {
     Coordinate coordinate;
     CompassDirection direction;
@@ -8,16 +13,16 @@ public class Location {
     }
 
 
-    Location moveForward() {
+    public Location moveForward() {
         Coordinate updatedCoordinate = new Coordinate(0, 1);
         return new Location(updatedCoordinate, this.direction);
     }
 
-    Location rotateLeft() {
+    public Location rotateLeft() {
         return new Location(this.coordinate, this.direction.rotateLeft());
     }
 
-    Location rotateRight() {
+    public Location rotateRight() {
         return new Location(this.coordinate, this.direction.rotateRight());
     }
 

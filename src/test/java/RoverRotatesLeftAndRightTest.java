@@ -1,3 +1,4 @@
+import RoverVehicle.Rover;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

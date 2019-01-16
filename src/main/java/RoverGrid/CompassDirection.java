@@ -1,3 +1,5 @@
+package RoverGrid;
+
 public interface CompassDirection {
     CompassDirection rotateRight();
     CompassDirection rotateLeft();

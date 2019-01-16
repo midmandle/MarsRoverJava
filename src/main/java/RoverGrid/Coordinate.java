@@ -1,3 +1,5 @@
+package RoverGrid;
+
 public class Coordinate {
     private final int yCoordinate;
     private final int xCoordinate;
