@@ -33,6 +33,7 @@ public class RoverNavigatesGridTest {
         };
     }
 
+    @Test
     @Parameters(method = "wrapsAroundGridBoundariesParams")
     public void rover_wraps_around_grid(String instructions, String endLocation) {
         Grid grid = new Grid();
@@ -44,8 +45,8 @@ public class RoverNavigatesGridTest {
         return new Object[] {
                 new Object[]{"LM", "9,0,W"},
                 new Object[]{"LLM", "0,9,S"},
-                new Object[]{"LLMMMMMMRM", "9,5,W"},
-                new Object[]{"LLMMMMMMRMRRM", "0,5,E"},
+                new Object[]{"LLMMMMMMRM", "9,4,W"},
+                new Object[]{"LLMMMMMMRMRRM", "0,4,E"},
         };
     }
 
