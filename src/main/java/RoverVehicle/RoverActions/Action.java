@@ -1,7 +1,7 @@
 package RoverVehicle.RoverActions;
 
-import RoverVehicle.Location;
+import RoverVehicle.Rover;
 
 public interface Action {
-    Location execute(Location location);
+    void execute(Rover rover) throws Exception;
 }

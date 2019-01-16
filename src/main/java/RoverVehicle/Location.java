@@ -5,7 +5,7 @@ import RoverGrid.Coordinate;
 import RoverGrid.North;
 
 public class Location {
-    Coordinate coordinate;
+    public Coordinate coordinate;
     CompassDirection direction;
 
     public Location(Coordinate coordinate, CompassDirection direction) {

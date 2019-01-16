@@ -1,3 +1,5 @@
+import RoverGrid.Coordinate;
+import RoverGrid.Grid;
 import RoverVehicle.Rover;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -11,7 +13,8 @@ public class RoverNavigatesGridTest {
     @Test
     @Parameters(method = "movesAroundTestParams")
     public void rover_moves_around_grid(String instructions, String endLocation) {
-        Rover rover = new Rover();
+        Grid grid = new Grid();
+        Rover rover = new Rover(grid);
         assertEquals(endLocation, rover.move(instructions));
     }
 
@@ -32,7 +35,8 @@ public class RoverNavigatesGridTest {
 
     @Parameters(method = "wrapsAroundGridBoundariesParams")
     public void rover_wraps_around_grid(String instructions, String endLocation) {
-        Rover rover = new Rover();
+        Grid grid = new Grid();
+        Rover rover = new Rover(grid);
         assertEquals(endLocation, rover.move(instructions));
     }
 
@@ -43,5 +47,14 @@ public class RoverNavigatesGridTest {
                 new Object[]{"LLMMMMMMRM", "9,5,W"},
                 new Object[]{"LLMMMMMMRMRRM", "0,5,E"},
         };
+    }
+
+    @Test
+    public void rover_stops_when_encountering_obstacle() {
+        Coordinate obstableLocation = new Coordinate(0,2);
+        Grid grid = new Grid();
+        grid.addObstacleAt(obstableLocation);
+        Rover rover = new Rover(grid);
+        assertEquals("0,1,N", rover.move("MM"));
     }
 }

@@ -2,14 +2,17 @@ package RoverVehicle;
 
 import RoverGrid.CompassDirection;
 import RoverGrid.Coordinate;
+import RoverGrid.Grid;
 import RoverGrid.North;
 import RoverVehicle.RoverActions.Action;
 import RoverVehicle.RoverActions.ActionFactory;
 
 public class Rover {
-    private Location location;
+    public final Grid grid;
+    public Location location;
 
-    public Rover() {
+    public Rover(Grid grid) {
+        this.grid = grid;
         this.initialiseStartingLocation();
     }
 
@@ -24,16 +27,19 @@ public class Rover {
     }
 
     public String move(String instructions) {
-        for (Character action : instructions.toCharArray()) {
-            executeAction(action);
+        try {
+            for (Character action : instructions.toCharArray()) {
+                executeAction(action);
+            }
+            return this.location.toString();
+        } catch (Exception e) {
+            return this.location.toString();
         }
-
-        return this.location.toString();
     }
 
-    private void executeAction(Character action) {
+    private void executeAction(Character action) throws Exception {
         ActionFactory actionFactory = new ActionFactory();
         Action actionToExecute = actionFactory.generate(action);
-        this.location = actionToExecute.execute(this.location);
+        actionToExecute.execute(this);
     }
 }

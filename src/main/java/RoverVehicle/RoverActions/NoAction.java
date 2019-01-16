@@ -1,9 +1,10 @@
 package RoverVehicle.RoverActions;
 
 import RoverVehicle.Location;
+import RoverVehicle.Rover;
 
 public class NoAction implements Action {
-    public Location execute(Location location) {
-        return location;
+    public void execute(Rover rover) {
+        return;
     }
 }
