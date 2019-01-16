@@ -3,6 +3,10 @@ public class Rover {
     private CompassDirection direction;
 
     public Rover() {
+        this.initialiseStartingLocation();
+    }
+
+    private void initialiseStartingLocation() {
         this.currentLocation = new Coordinate(0,0);
         this.direction = CompassDirection.NORTH;
     }
