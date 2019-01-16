@@ -17,7 +17,6 @@ public class Rover {
 
     public String move(String instructions) {
         for (Character action : instructions.toCharArray()) {
-            System.out.println("Action: " + action);
             if(action.equals('R'))
                 rotateRight();
             if(action.equals('L'))
