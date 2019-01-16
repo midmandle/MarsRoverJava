@@ -18,9 +18,9 @@ public class Rover {
     public String move(String instructions) {
         for (Character action : instructions.toCharArray()) {
             if(action.equals('R'))
-                rotateRight();
+                this.rotateRight();
             if(action.equals('L'))
-                rotateLeft();
+                this.rotateLeft();
         }
 
         this.currentLocation = new Coordinate(0,0);

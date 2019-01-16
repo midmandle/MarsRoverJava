@@ -22,4 +22,11 @@ public class RoverRotatesLeftAndRightTest {
         assertEquals("0,0,S", rover.move("RR"));
         assertEquals("0,0,N", rover.move("LL"));
     }
+
+    @Test
+    public void rover_rotates_full_circle(){
+        Rover rover = new Rover();
+        assertEquals("0,0,N", rover.move("LLLL"));
+        assertEquals("0,0,N", rover.move("RRRR"));
+    }
 }
