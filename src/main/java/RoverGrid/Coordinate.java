@@ -1,8 +1,8 @@
 package RoverGrid;
 
 public class Coordinate {
-    private final int yCoordinate;
-    private final int xCoordinate;
+    public final int yCoordinate;
+    public final int xCoordinate;
 
     public Coordinate(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
