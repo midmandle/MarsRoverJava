@@ -27,17 +27,21 @@ public class Rover {
     }
 
     public String executeInstructions(String instructions) {
-        for (Character action : instructions.toCharArray()) {
-            try {
-                executeAction(action);
-            } catch (Exception e) {
-                return this.generateCurrentLocationString();
-            }
+        try {
+            this.generateAndExecuteActionsForInstruction(instructions);
+        } catch (Exception e) {
+            return this.generateCurrentLocationString();
         }
         return this.generateCurrentLocationString();
     }
 
-    private void executeAction(Character action) throws Exception {
+    private void generateAndExecuteActionsForInstruction(String instructions) throws Exception {
+        for (Character action : instructions.toCharArray()) {
+            this.generateAndExecuteAction(action);
+        }
+    }
+
+    private void generateAndExecuteAction(Character action) throws Exception {
         ActionFactory actionFactory = new ActionFactory(this.vehicleState, this.grid);
         Action actionToExecute = actionFactory.generate(action);
         this.vehicleState = actionToExecute.execute();

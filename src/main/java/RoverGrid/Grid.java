@@ -26,21 +26,21 @@ public class Grid {
     }
 
     private Coordinate generateNextValidCoordinate(VehicleState roverVehicleState) {
-        Coordinate nextCoordinates = this.getNextLocationInVehiclesDirection(roverVehicleState);
+        Coordinate nextCoordinate = this.getNextLocationInVehiclesDirection(roverVehicleState);
 
-        if(isWrappingLeft(nextCoordinates))
-            nextCoordinates = wrapToLeftSide(nextCoordinates);
+        if(isWrappingLeft(nextCoordinate))
+            nextCoordinate = wrapToLeftSide(nextCoordinate);
 
-        if(isWrappingTop(nextCoordinates))
-            nextCoordinates = wrapToBottomSide(nextCoordinates);
+        if(isWrappingTop(nextCoordinate))
+            nextCoordinate = wrapToBottomSide(nextCoordinate);
 
-        if(isWrappingToRight(nextCoordinates))
-            nextCoordinates = wrapToRightSide(nextCoordinates);
+        if(isWrappingToRight(nextCoordinate))
+            nextCoordinate = wrapToRightSide(nextCoordinate);
 
-        if(isWrappingToBottom(nextCoordinates))
-            nextCoordinates = wrapToTopSide(nextCoordinates);
+        if(isWrappingToBottom(nextCoordinate))
+            nextCoordinate = wrapToTopSide(nextCoordinate);
 
-        return nextCoordinates;
+        return nextCoordinate;
     }
 
     private boolean isWrappingToBottom(Coordinate nextCoordinates) {
