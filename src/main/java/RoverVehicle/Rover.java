@@ -22,7 +22,7 @@ public class Rover {
         this.vehicleState = new VehicleState(initialCoordinate, initialDirection);
     }
 
-    public String generateCurrentLocationString() {
+    private String generateCurrentLocationString() {
         return this.vehicleState.getLocationString();
     }
 
