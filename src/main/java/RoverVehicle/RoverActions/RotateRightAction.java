@@ -3,7 +3,13 @@ package RoverVehicle.RoverActions;
 import RoverVehicle.VehicleState;
 
 public class RotateRightAction implements Action {
-    public VehicleState execute(VehicleState vehicleState) {
-        return new VehicleState(vehicleState.coordinate, vehicleState.direction.rotateRight(), vehicleState.grid);
+    private final VehicleState vehicleState;
+
+    public RotateRightAction(VehicleState vehicleState) {
+        this.vehicleState = vehicleState;
+    }
+
+    public VehicleState execute() {
+        return new VehicleState(this.vehicleState.coordinate, this.vehicleState.direction.rotateRight());
     }
 }

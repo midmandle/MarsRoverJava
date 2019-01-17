@@ -1,14 +1,23 @@
 package RoverVehicle.RoverActions;
 
 import RoverGrid.Coordinate;
+import RoverGrid.Grid;
 import RoverVehicle.VehicleState;
 
 public class MoveAction implements Action {
-    public VehicleState execute(VehicleState vehicleState) throws Exception {
-        Coordinate nextCoordinates = vehicleState.grid.determineNextLocation(vehicleState);
-        if(vehicleState.grid.hasObstacleAt(nextCoordinates)) {
+    private final VehicleState vehicleState;
+    private final Grid grid;
+
+    public MoveAction(VehicleState vehicleState, Grid grid) {
+        this.vehicleState = vehicleState;
+        this.grid = grid;
+    }
+
+    public VehicleState execute() throws Exception {
+        Coordinate nextCoordinates = this.grid.determineNextLocation(this.vehicleState);
+        if(this.grid.hasObstacleAt(nextCoordinates)) {
             throw new Exception("Obstacle ahead!");
         }
-        return new VehicleState(nextCoordinates, vehicleState.direction, vehicleState.grid);
+        return new VehicleState(nextCoordinates, this.vehicleState.direction);
     }
 }

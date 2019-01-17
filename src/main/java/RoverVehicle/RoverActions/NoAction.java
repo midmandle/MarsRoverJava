@@ -3,7 +3,13 @@ package RoverVehicle.RoverActions;
 import RoverVehicle.VehicleState;
 
 public class NoAction implements Action {
-    public VehicleState execute(VehicleState vehicleState) {
-        return vehicleState;
+    private final VehicleState vehicleState;
+
+    public NoAction(VehicleState vehicleState) {
+        this.vehicleState = vehicleState;
+    }
+
+    public VehicleState execute() {
+        return this.vehicleState;
     }
 }

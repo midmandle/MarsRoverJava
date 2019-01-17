@@ -9,15 +9,17 @@ import RoverVehicle.RoverActions.ActionFactory;
 
 public class Rover {
     private VehicleState vehicleState;
+    private Grid grid;
 
     public Rover(Grid grid) {
-        this.initialiseStartingLocation(grid);
+        this.grid = grid;
+        this.initialiseStartingLocation();
     }
 
-    private void initialiseStartingLocation(Grid grid) {
+    private void initialiseStartingLocation() {
         Coordinate initialCoordinate = new Coordinate(0,0);
         CompassDirection initialDirection = new North();
-        this.vehicleState = new VehicleState(initialCoordinate, initialDirection, grid);
+        this.vehicleState = new VehicleState(initialCoordinate, initialDirection);
     }
 
     public String generateCurrentLocationString() {
@@ -36,8 +38,8 @@ public class Rover {
     }
 
     private void executeAction(Character action) throws Exception {
-        ActionFactory actionFactory = new ActionFactory();
+        ActionFactory actionFactory = new ActionFactory(this.vehicleState, this.grid);
         Action actionToExecute = actionFactory.generate(action);
-        this.vehicleState = actionToExecute.execute(this.vehicleState);
+        this.vehicleState = actionToExecute.execute();
     }
 }

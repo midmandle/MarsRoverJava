@@ -2,17 +2,14 @@ package RoverVehicle;
 
 import RoverGrid.CompassDirection;
 import RoverGrid.Coordinate;
-import RoverGrid.Grid;
 
 public class VehicleState {
-    public final Grid grid;
     public Coordinate coordinate;
     public CompassDirection direction;
 
-    public VehicleState(Coordinate coordinate, CompassDirection direction, Grid grid) {
+    public VehicleState(Coordinate coordinate, CompassDirection direction) {
         this.coordinate = coordinate;
         this.direction = direction;
-        this.grid = grid;
     }
 
     public String getLocationString() {

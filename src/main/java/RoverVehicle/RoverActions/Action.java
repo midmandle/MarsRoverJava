@@ -3,5 +3,5 @@ package RoverVehicle.RoverActions;
 import RoverVehicle.VehicleState;
 
 public interface Action {
-    VehicleState execute(VehicleState vehicleState) throws Exception;
+    VehicleState execute() throws Exception;
 }
