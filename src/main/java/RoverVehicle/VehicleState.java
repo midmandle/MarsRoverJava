@@ -15,8 +15,7 @@ public class VehicleState {
         this.grid = grid;
     }
 
-    @Override
-    public String toString() {
+    public String getLocationString() {
         return coordinate.toString() + "," + direction.getName();
     }
 

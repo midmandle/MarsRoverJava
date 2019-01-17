@@ -21,7 +21,7 @@ public class Rover {
     }
 
     public String generateCurrentLocationString() {
-        return this.vehicleState.toString();
+        return this.vehicleState.getLocationString();
     }
 
     public String executeInstructions(String instructions) {
