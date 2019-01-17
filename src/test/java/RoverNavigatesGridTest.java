@@ -15,7 +15,7 @@ public class RoverNavigatesGridTest {
     public void rover_moves_around_grid(String instructions, String endLocation) {
         Grid grid = new Grid();
         Rover rover = new Rover(grid);
-        assertEquals(endLocation, rover.move(instructions));
+        assertEquals(endLocation, rover.executeInstructions(instructions));
     }
 
     private Object[] movesAroundTestParams() {
@@ -38,7 +38,7 @@ public class RoverNavigatesGridTest {
     public void rover_wraps_around_grid(String instructions, String endLocation) {
         Grid grid = new Grid();
         Rover rover = new Rover(grid);
-        assertEquals(endLocation, rover.move(instructions));
+        assertEquals(endLocation, rover.executeInstructions(instructions));
     }
 
     private Object[] wrapsAroundGridBoundariesParams() {
@@ -56,6 +56,6 @@ public class RoverNavigatesGridTest {
         Grid grid = new Grid();
         grid.addObstacleAt(obstableLocation);
         Rover rover = new Rover(grid);
-        assertEquals("0,1,N", rover.move("MM"));
+        assertEquals("0,1,N", rover.executeInstructions("MM"));
     }
 }

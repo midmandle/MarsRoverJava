@@ -9,6 +9,6 @@ public class RoverMovesForwardTest {
     public void rover_moves_forward_one_space_from_starting_place() {
         Grid grid = new Grid();
         Rover rover = new Rover(grid);
-        assertEquals("0,1,N", rover.move("M"));
+        assertEquals("0,1,N", rover.executeInstructions("M"));
     }
 }

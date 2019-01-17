@@ -26,7 +26,7 @@ public class Rover {
         return this.location.toString();
     }
 
-    public String move(String instructions) {
+    public String executeInstructions(String instructions) {
         try {
             for (Character action : instructions.toCharArray()) {
                 executeAction(action);
