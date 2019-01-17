@@ -15,9 +15,8 @@ public class Grid {
         this.height = 9;
     }
 
-    public VehicleState determineNextLocation(VehicleState roverVehicleState) {
-        VehicleState nextVehicleState = roverVehicleState.getNextLocation();
-        Coordinate nextCoordinates = nextVehicleState.coordinate;
+    public Coordinate determineNextLocation(VehicleState roverVehicleState) {
+        Coordinate nextCoordinates = this.getNextLocationInVehiclesDirection(roverVehicleState);
 
         if(nextCoordinates.xCoordinate > this.width)
             nextCoordinates = new Coordinate(0, nextCoordinates.yCoordinate);
@@ -28,7 +27,7 @@ public class Grid {
         if(nextCoordinates.yCoordinate < 0)
             nextCoordinates = new Coordinate(nextCoordinates.xCoordinate, this.height);
 
-        return new VehicleState(nextCoordinates, roverVehicleState.direction, this);
+        return nextCoordinates;
     }
 
     public void addObstacleAt(Coordinate obstacleCoordinate) {
@@ -37,5 +36,10 @@ public class Grid {
 
     public boolean hasObstacleAt(Coordinate queryCoordinate) {
         return obstacles.contains(queryCoordinate);
+    }
+
+    private Coordinate getNextLocationInVehiclesDirection(VehicleState vehicleState) {
+        Coordinate nextCoordinates = vehicleState.coordinate.getCoordinateInDirection(vehicleState.direction);
+        return nextCoordinates;
     }
 }

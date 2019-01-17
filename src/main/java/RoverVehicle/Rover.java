@@ -8,7 +8,7 @@ import RoverVehicle.RoverActions.Action;
 import RoverVehicle.RoverActions.ActionFactory;
 
 public class Rover {
-    public VehicleState vehicleState;
+    private VehicleState vehicleState;
 
     public Rover(Grid grid) {
         this.initialiseStartingLocation(grid);

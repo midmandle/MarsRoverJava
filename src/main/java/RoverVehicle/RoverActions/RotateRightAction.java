@@ -4,7 +4,6 @@ import RoverVehicle.VehicleState;
 
 public class RotateRightAction implements Action {
     public VehicleState execute(VehicleState vehicleState) {
-        vehicleState = vehicleState.rotateRight();
-        return vehicleState;
+        return new VehicleState(vehicleState.coordinate, vehicleState.direction.rotateRight(), vehicleState.grid);
     }
 }
