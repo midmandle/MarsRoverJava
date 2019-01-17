@@ -52,9 +52,9 @@ public class RoverNavigatesGridTest {
 
     @Test
     public void rover_stops_when_encountering_obstacle() {
-        Coordinate obstableLocation = new Coordinate(0,2);
+        Coordinate obstacleLocation = new Coordinate(0,2);
         Grid grid = new Grid();
-        grid.addObstacleAt(obstableLocation);
+        grid.addObstacleAt(obstacleLocation);
         Rover rover = new Rover(grid);
         assertEquals("0,1,N", rover.executeInstructions("MM"));
     }
