@@ -28,19 +28,35 @@ public class Grid {
     private Coordinate generateNextValidCoordinate(VehicleState roverVehicleState) {
         Coordinate nextCoordinates = this.getNextLocationInVehiclesDirection(roverVehicleState);
 
-        if(nextCoordinates.xCoordinate > this.width)
+        if(isWrappingLeft(nextCoordinates))
             nextCoordinates = wrapToLeftSide(nextCoordinates);
 
-        if(nextCoordinates.yCoordinate > this.height)
+        if(isWrappingTop(nextCoordinates))
             nextCoordinates = wrapToBottomSide(nextCoordinates);
 
-        if(nextCoordinates.xCoordinate < 0)
+        if(isWrappingToRight(nextCoordinates))
             nextCoordinates = wrapToRightSide(nextCoordinates);
 
-        if(nextCoordinates.yCoordinate < 0)
+        if(isWrappingToBottom(nextCoordinates))
             nextCoordinates = wrapToTopSide(nextCoordinates);
 
         return nextCoordinates;
+    }
+
+    private boolean isWrappingToBottom(Coordinate nextCoordinates) {
+        return nextCoordinates.yCoordinate < 0;
+    }
+
+    private boolean isWrappingToRight(Coordinate nextCoordinates) {
+        return nextCoordinates.xCoordinate < 0;
+    }
+
+    private boolean isWrappingTop(Coordinate nextCoordinates) {
+        return nextCoordinates.yCoordinate > this.height;
+    }
+
+    private boolean isWrappingLeft(Coordinate nextCoordinates) {
+        return nextCoordinates.xCoordinate > this.width;
     }
 
     private Coordinate wrapToTopSide(Coordinate nextCoordinates) {
