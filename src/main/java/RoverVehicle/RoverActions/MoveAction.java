@@ -5,6 +5,10 @@ import RoverVehicle.Rover;
 
 public class MoveAction implements Action {
     public void execute(Rover rover) throws Exception {
-        rover.moveInCurrentDirection();
+        Location nextLocation = rover.grid.determineNextLocation(rover.location);
+        if(rover.grid.hasObstacleAt(nextLocation.coordinate)) {
+            throw new Exception("Obstacle ahead!");
+        }
+        rover.location = nextLocation;
     }
 }

@@ -43,11 +43,4 @@ public class Rover {
         actionToExecute.execute(this);
     }
 
-    public void moveInCurrentDirection() throws Exception {
-        Location nextLocation = this.grid.determineNextLocation(this.location);
-        if(this.grid.hasObstacleAt(nextLocation.coordinate)) {
-            throw new Exception("Obstacle ahead!");
-        }
-        this.location = nextLocation;
-    }
 }
