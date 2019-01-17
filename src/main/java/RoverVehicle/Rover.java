@@ -27,14 +27,14 @@ public class Rover {
     }
 
     public String executeInstructions(String instructions) {
-        try {
-            for (Character action : instructions.toCharArray()) {
+        for (Character action : instructions.toCharArray()) {
+            try {
                 executeAction(action);
+            } catch (Exception e) {
+                return this.generateCurrentLocationString();
             }
-            return this.generateCurrentLocationString();
-        } catch (Exception e) {
-            return this.generateCurrentLocationString();
         }
+        return this.generateCurrentLocationString();
     }
 
     private void executeAction(Character action) throws Exception {

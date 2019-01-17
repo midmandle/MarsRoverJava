@@ -15,7 +15,7 @@ public class Grid {
         this.height = 9;
     }
 
-    public Coordinate determineNextLocation(VehicleState roverVehicleState) {
+    public Coordinate determineVehiclesNextValidLocation(VehicleState roverVehicleState) throws Exception {
         Coordinate nextCoordinates = this.getNextLocationInVehiclesDirection(roverVehicleState);
 
         if(nextCoordinates.xCoordinate > this.width)
@@ -26,6 +26,10 @@ public class Grid {
             nextCoordinates = new Coordinate(this.width, nextCoordinates.yCoordinate);
         if(nextCoordinates.yCoordinate < 0)
             nextCoordinates = new Coordinate(nextCoordinates.xCoordinate, this.height);
+
+        if(this.hasObstacleAt(nextCoordinates)) {
+            throw new Exception("Obstacle ahead!");
+        }
 
         return nextCoordinates;
     }

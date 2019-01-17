@@ -14,10 +14,7 @@ public class MoveAction implements Action {
     }
 
     public VehicleState execute() throws Exception {
-        Coordinate nextCoordinates = this.grid.determineNextLocation(this.vehicleState);
-        if(this.grid.hasObstacleAt(nextCoordinates)) {
-            throw new Exception("Obstacle ahead!");
-        }
+        Coordinate nextCoordinates = this.grid.determineVehiclesNextValidLocation(this.vehicleState);
         return new VehicleState(nextCoordinates, this.vehicleState.direction);
     }
 }
