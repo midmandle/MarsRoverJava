@@ -30,12 +30,16 @@ public class Grid {
 
         if(nextCoordinates.xCoordinate > this.width)
             nextCoordinates = wrapToLeftSide(nextCoordinates);
+
         if(nextCoordinates.yCoordinate > this.height)
             nextCoordinates = wrapToBottomSide(nextCoordinates);
+
         if(nextCoordinates.xCoordinate < 0)
             nextCoordinates = wrapToRightSide(nextCoordinates);
+
         if(nextCoordinates.yCoordinate < 0)
             nextCoordinates = wrapToTopSide(nextCoordinates);
+
         return nextCoordinates;
     }
 
