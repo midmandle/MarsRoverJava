@@ -1,14 +1,13 @@
 package RoverVehicle.RoverActions;
 
-import RoverVehicle.Location;
-import RoverVehicle.Rover;
+import RoverVehicle.VehicleState;
 
 public class MoveAction implements Action {
-    public void execute(Rover rover) throws Exception {
-        Location nextLocation = rover.grid.determineNextLocation(rover.location);
-        if(rover.grid.hasObstacleAt(nextLocation.coordinate)) {
+    public VehicleState execute(VehicleState vehicleState) throws Exception {
+        VehicleState nextVehicleState = vehicleState.grid.determineNextLocation(vehicleState);
+        if(vehicleState.grid.hasObstacleAt(nextVehicleState.coordinate)) {
             throw new Exception("Obstacle ahead!");
         }
-        rover.location = nextLocation;
+        return nextVehicleState;
     }
 }

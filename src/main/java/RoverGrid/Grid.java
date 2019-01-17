@@ -1,7 +1,7 @@
 package RoverGrid;
 
 
-import RoverVehicle.Location;
+import RoverVehicle.VehicleState;
 
 import java.util.ArrayList;
 
@@ -15,9 +15,10 @@ public class Grid {
         this.height = 9;
     }
 
-    public Location determineNextLocation(Location roverLocation) {
-        Location nextLocation = roverLocation.getNextLocation();
-        Coordinate nextCoordinates = nextLocation.coordinate;
+    public VehicleState determineNextLocation(VehicleState roverVehicleState) {
+        VehicleState nextVehicleState = roverVehicleState.getNextLocation();
+        Coordinate nextCoordinates = nextVehicleState.coordinate;
+
         if(nextCoordinates.xCoordinate > this.width)
             nextCoordinates = new Coordinate(0, nextCoordinates.yCoordinate);
         if(nextCoordinates.yCoordinate > this.height)
@@ -27,7 +28,7 @@ public class Grid {
         if(nextCoordinates.yCoordinate < 0)
             nextCoordinates = new Coordinate(nextCoordinates.xCoordinate, this.height);
 
-        return new Location(nextCoordinates, roverLocation.direction);
+        return new VehicleState(nextCoordinates, roverVehicleState.direction, this);
     }
 
     public void addObstacleAt(Coordinate obstacleCoordinate) {

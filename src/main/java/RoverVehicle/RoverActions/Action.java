@@ -1,7 +1,7 @@
 package RoverVehicle.RoverActions;
 
-import RoverVehicle.Rover;
+import RoverVehicle.VehicleState;
 
 public interface Action {
-    void execute(Rover rover) throws Exception;
+    VehicleState execute(VehicleState vehicleState) throws Exception;
 }

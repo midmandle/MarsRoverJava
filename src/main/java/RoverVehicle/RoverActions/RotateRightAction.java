@@ -1,10 +1,10 @@
 package RoverVehicle.RoverActions;
 
-import RoverVehicle.Location;
-import RoverVehicle.Rover;
+import RoverVehicle.VehicleState;
 
 public class RotateRightAction implements Action {
-    public void execute(Rover rover) {
-        rover.location = rover.location.rotateRight();
+    public VehicleState execute(VehicleState vehicleState) {
+        vehicleState = vehicleState.rotateRight();
+        return vehicleState;
     }
 }

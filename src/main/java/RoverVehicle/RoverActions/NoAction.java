@@ -1,10 +1,9 @@
 package RoverVehicle.RoverActions;
 
-import RoverVehicle.Location;
-import RoverVehicle.Rover;
+import RoverVehicle.VehicleState;
 
 public class NoAction implements Action {
-    public void execute(Rover rover) {
-        return;
+    public VehicleState execute(VehicleState vehicleState) {
+        return vehicleState;
     }
 }
